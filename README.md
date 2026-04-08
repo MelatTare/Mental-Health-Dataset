@@ -1,4 +1,4 @@
-# Mental Health Care Utilization During COVID-19
+# Mental Health Care Utilization During COVID-19 (within 4 weeks) 
 
 ## Overview
 This project analyzes data from the Household Pulse Survey to understand how mental health care utilization changed during the COVID-19 pandemic in the United States.
