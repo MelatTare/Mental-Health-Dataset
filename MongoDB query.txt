@@ -1,0 +1,13 @@
+NoSQL database - MongoDB Compass and query of dataset
+
+db["Data"].find()     // find the dataset
+db["Data"].count()  // count the records
+db["Data"].distinct ("Indicator")  // find the different indicators in the dataset
+db["Data"].distinct("Group")  // find what the data is grouped by
+db["Data"].distinct("Subgroup")   // find all the subgroups 
+db["Data"].aggregate({$group: {_id:"$Indicator", aveValue: {$avg: "$Value"}}})   //find the average utilization of mental health services by  the different indicators 
+db["Data"].aggregate({$group: {_id:"$Group", aveValue: {$avg: "$Value"}}})  //find the average utilization of mental health services by the different groups
+db["Data"].aggregate([{ "$group": { "_id": "$Phase", "avg_value": { "$avg": "$Value" } } },{ "$sort": { "_id": 1 } }])  //find the average utilization of mental health services throughout the different phases.
+db["Data"].aggregate([{ "$group": { "_id": "$State", "avg_value": { "$avg": "$Value" } } },{ "$sort": { "_id": 1 } }])    //find the average utilization of mental health services by the different states.
+db["Data"].aggregate([  { "$group": { "_id": { "Group": "$Group", "Subgroup": "$Subgroup" }, "avg_value": { "$avg": "$Value" } } },  { "$sort": { "_id.Group": 1, "_id.Subgroup": 1 } }])  //find the average utilization of mental health services by the different subgroups/ demographic
+
